@@ -9,6 +9,7 @@ This project brings together concepts from Labs 1 and 2, combining infrastructur
 **Team Structure:**
 - Work in teams of 4
 
+You will create a system inside AWS that interacts with your IoT sensors, users and an LLM as shown in the image below: 
 ![Final Architecture](img/FinalProject.png)
 
 ## 2. Learning Objectives
@@ -62,7 +63,7 @@ You can find example code for calling the LLM API in the `helpers/llm` directory
 
 **API Key Security Warning**
 
-You will be provided with an API key to access the LLM service. This key is shared and has usage limits.
+You will be provided with an API key to access the LLM service.
 
 - **DO NOT** commit your API key to GitHub or any version control
 - **DO NOT** share your API key publicly
@@ -79,7 +80,7 @@ You have freedom in how you design your solution. Below are some architectural p
 
 This approach stores raw IoT data in S3 and uses Athena for SQL queries:
 
-- **IoT Core**: Receives MQTT messages from sensors and routes them to S3 via IoT Rules
+- **IoT Core**: Receives MQTT messages from sensors.
 - **S3**: Stores IoT data as JSON or Parquet files (durable and cheap)
 - **Athena**: Serverless SQL engine that queries data directly in S3
 - **Lambda + API Gateway**: Handles API requests, calls the LLM, executes Athena queries
@@ -108,6 +109,8 @@ A more traditional approach using EC2:
 
 **Description**: Self managed and probably a lot of overhead, but most flexible.
 
+Feel free to use these suggestions, design your own path, or mix and match some of the mentioned services.
+
 ### Important Constraints
 
 **AWS Academy Limitations**: Some AWS services may not be available or may have restricted functionality in AWS Academy accounts. Test early to ensure your chosen services work.
@@ -121,7 +124,7 @@ A more traditional approach using EC2:
 
 The `helpers/` directory contains example code that may be useful:
 - `helpers/iot/`: Example code for publishing data to AWS IoT Core using MQTT
-- `helpers/llm/`: Example code for calling the LLM API
+- `helpers/llm/`: Example code for calling the LLM API #TODO: THIS CODE WILL NEED TO BE MODIFIED DEPENDING ON HOW WE GIVE STUDENTS ACCESS TO LLMs
 
 ### Previous Labs
 
@@ -136,11 +139,15 @@ Refer back to Lab 1 and Lab 2 for guidance on:
 
 You will need to submit the following as a team:
 
-1. **Video Presentation (max 5 minutes)**: Explain your architecture, demonstrate data ingestion, show both APIs working (deterministic lookup and at least 3 natural language queries), and walk through the AWS services deployed.
+1. **Video Presentation (max 5 minutes)**: Explain your architecture, demonstrate data ingestion, show both APIs working (deterministic lookup and a natural language query), and walk through the AWS services deployed in your AWS account.
 2. **Architecture Diagram**: Clear diagram showing all components and data flow. You can use draw.io for diagraming.
 3. **Code Repository**: GitHub link with a README explaining setup and deployment. Ensure no API keys or secrets are committed.
 4. **Cost Estimation**: Estimated monthly cost using the [AWS Pricing Calculator](https://calculator.aws/), including your assumptions.
-5. **Latency Measurements**: Average response times for both APIs and methodology used to measure.
+5. **Latency Measurements**: Average response times for both APIs, as well as average time to ingest new data. Describe the methodology used to measure this.
 6. **Brief Write-up**: Names and student numbers, key concepts learned, and challenges encountered.
 
 You are encouraged to go deeper and explore advanced features, but the above represents the minimum requirements.
+For example, additional things you could consider adding are:
+- Adding a frontend
+- Adding load testing
+- Automating deployments with CI/CD pipelines
