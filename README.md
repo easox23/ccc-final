@@ -121,7 +121,7 @@ A more traditional approach using EC2:
 
 **Description**: Self managed and probably a lot of overhead, but most flexible.
 
-### Option D: ECS-Based Solution
+### Option D: ECS-Based Solution [EXTRA CREDIT]
 
 A containerized approach using ECS:
 
@@ -130,9 +130,7 @@ A containerized approach using ECS:
 - **RDS or DynamoDB**: Your choice of database backend
 - **Application Load Balancer**: Routes traffic to your ECS tasks
 
-**Description**: Requires knowledge of Docker and container orchestration, but is widely used in the industry.
-
-> **Extra Credit**: If you use **ECS (Elastic Container Service)** for your API, you will receive extra credit.
+**Description**: Requires knowledge of Docker and container orchestration, but is widely used in the industry. If you use **ECS (Elastic Container Service)** for your API, you will receive extra credit.
 
 Feel free to use these suggestions, design your own path, or mix and match some of the mentioned services.
 
