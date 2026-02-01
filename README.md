@@ -29,7 +29,7 @@ Before starting this project, ensure you have:
 - **Completed Lab 1 and Lab 2**: You should be comfortable with VPCs, EC2, Lambda, API Gateway, DynamoDB, S3, and Terraform
 - **Industrial IoT Course**: You should have sensors configured and understand your data schema
 - **AWS Academy Learner Lab access**: Same platform as in previous labs
-- **Free AWS Account (optional)**: You can create a free AWS account at https://aws.amazon.com/free/ with $100 in credits and less restrictions than AWS Academy.
+- **Free AWS Account (optional)**: You can create a free [AWS account](https://aws.amazon.com/free/) with $100 in credits and less restrictions than AWS Academy.
 - **Development environment**: Git, Terraform, Python, and your preferred IDE
 
 ## 4. Project Description
