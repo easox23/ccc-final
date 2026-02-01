@@ -29,11 +29,12 @@ Before starting this project, ensure you have:
 - **Completed Lab 1 and Lab 2**: You should be comfortable with VPCs, EC2, Lambda, API Gateway, DynamoDB, S3, and Terraform
 - **Industrial IoT Course**: You should have sensors configured and understand your data schema
 - **AWS Academy Learner Lab access**: Same platform as in previous labs
+- **Free AWS Account (optional)**: You can create a free AWS account at https://aws.amazon.com/free/ with $100 in credits and less restrictions than AWS Academy.
 - **Development environment**: Git, Terraform, Python, and your preferred IDE
 
 ## 4. Project Description
 
-Your platform must accomplish two main goals:
+Your platform must accomplish three main goals:
 
 ### 4.1 Data Ingestion
 
@@ -41,7 +42,15 @@ Ingest IoT data from the sensors you configured in your Industrial IoT course. T
 
 You can find example code for ingesting data using AWS IoT Core in the `helpers/iot` directory. This code demonstrates how to publish MQTT messages to IoT Core using certificates for authentication. You don't have to use IoT Core, but this can be a good start.
 
-### 4.2 Data Querying
+**Requirements:**
+- You must ingest at least **10,000 IoT events**. You can write scripts to generate and send data to AWS; events don't have to come directly from your IIoT course devices.
+- Raw sensor data should be stored in **S3**.
+
+### 4.2 Data Transformation
+
+You should have transformation pipelines that take your raw data to gold (note: we can skip silver for the project purposes, but you are free to add it). Hint: the gold layer does not have to be S3, especially in this case.
+
+### 4.3 Data Querying
 
 Your platform must expose two query interfaces:
 
@@ -70,6 +79,10 @@ You will be provided with an API key to access the LLM service.
 - **DO NOT** hardcode the API key in your source code
 - **DO** use environment variables or AWS Secrets Manager
 - **IMMEDIATELY NOTIFY** your instructor if your key is accidentally exposed
+
+**Requirements:**
+- You must be able to monitor **throughput and latency** for your APIs.
+- Include an analysis of how often your Natural Language Queries are able to return a proper answer, and methods you tried to improve performance.
 
 
 ## 5. Suggested Architectures
@@ -104,10 +117,23 @@ This approach uses DynamoDB as the primary data store:
 A more traditional approach using EC2:
 
 - **IoT Core**: Sends data to an EC2 instance or directly to a database
-- **EC2**: Runs your application code, database, and API
+- **EC2**: Runs your application code and API
 - **RDS or self-managed database**: PostgreSQL, MySQL, or similar
 
 **Description**: Self managed and probably a lot of overhead, but most flexible.
+
+### Option D: ECS-Based Solution
+
+A containerized approach using ECS:
+
+- **IoT Core**: Sends data to your containerized application
+- **ECS (Fargate)**: Runs your API as Docker containers, managed by AWS
+- **RDS or DynamoDB**: Your choice of database backend
+- **Application Load Balancer**: Routes traffic to your ECS tasks
+
+**Description**: Requires knowledge of Docker and container orchestration, but is widely used in the industry.
+
+> **Extra Credit**: If you use **ECS (Elastic Container Service)** for your API, you will receive extra credit.
 
 Feel free to use these suggestions, design your own path, or mix and match some of the mentioned services.
 
@@ -143,7 +169,7 @@ You will need to submit the following as a team:
 2. **Architecture Diagram**: Clear diagram showing all components and data flow. You can use draw.io for diagraming.
 3. **Code Repository**: GitHub link with a README explaining setup and deployment. Ensure no API keys or secrets are committed.
 4. **Cost Estimation**: Estimated monthly cost using the [AWS Pricing Calculator](https://calculator.aws/), including your assumptions.
-5. **Latency Measurements**: Average response times for both APIs, as well as average time to ingest new data. Describe the methodology used to measure this.
+5. **Throughput and Latency Measurements**: Average response times for both APIs, as well as average time to ingest new data. Include throughput metrics (e.g., events ingested per second, queries handled per second). Describe the methodology used to measure this.
 6. **Brief Write-up**: Names and student numbers, key concepts learned, and challenges encountered.
 
 You are encouraged to go deeper and explore advanced features, but the above represents the minimum requirements.
@@ -151,3 +177,6 @@ For example, additional things you could consider adding are:
 - Adding a frontend
 - Adding load testing
 - Automating deployments with CI/CD pipelines
+- Implementing authentication and authorization for your APIs (e.g., Cognito)
+- Adding data quality checks or schema validation in the pipeline
+- Experimenting with different prompt engineering techniques for the NL interface
