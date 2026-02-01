@@ -70,6 +70,10 @@ Your platform must expose two query interfaces:
 
 You can find example code for calling the LLM API in the `helpers/llm` directory.
 
+**Requirements:**
+- You must be able to monitor **throughput and latency** for your APIs.
+- Include an analysis of how often your Natural Language Queries are able to return a proper answer, and methods you tried to improve performance.
+
 **API Key Security Warning**
 
 You will be provided with an API key to access the LLM service.
@@ -79,11 +83,6 @@ You will be provided with an API key to access the LLM service.
 - **DO NOT** hardcode the API key in your source code
 - **DO** use environment variables or AWS Secrets Manager
 - **IMMEDIATELY NOTIFY** your instructor if your key is accidentally exposed
-
-**Requirements:**
-- You must be able to monitor **throughput and latency** for your APIs.
-- Include an analysis of how often your Natural Language Queries are able to return a proper answer, and methods you tried to improve performance.
-
 
 ## 5. Suggested Architectures
 
