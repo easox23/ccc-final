@@ -243,3 +243,15 @@ __marimo__/
 helpers/llm/.env
 helpers/iot/certs/*.pem.*
 helpers/iot/certs/*.pem
+
+# Terraform sensitive files
+terraform/terraform.tfvars
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+
+# Lambda deployment packages
+dist/
+
+# Lambda layer build artifacts
+layers/build/
+layers/common_layer.zip
