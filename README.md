@@ -147,7 +147,7 @@ Feel free to use these suggestions, design your own path, or mix and match some 
 
 The `helpers/` directory contains example code that may be useful:
 - `helpers/iot/`: Example code for publishing data to AWS IoT Core using MQTT
-- `helpers/llm/`: Example code for calling the LLM API #TODO: THIS CODE WILL NEED TO BE MODIFIED DEPENDING ON HOW WE GIVE STUDENTS ACCESS TO LLMs
+- `helpers/llm/`: Example code for calling the LLM API 
 
 ### Previous Labs
 
