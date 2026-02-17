@@ -254,4 +254,4 @@ dist/
 
 # Lambda layer build artifacts
 layers/build/
-layers/common_layer.zip
+layers/*.zip

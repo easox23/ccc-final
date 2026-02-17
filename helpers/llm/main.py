@@ -9,4 +9,4 @@ agent = Agent(
 )
 
 result = agent.run_sync('Hello world!')
-print(result)
+print(result.output)
