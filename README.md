@@ -162,11 +162,11 @@ Refer back to Lab 1 and Lab 2 for guidance on:
 
 You will need to submit the following as a team:
 
-1. **Video Presentation (max 5 minutes)**: Explain your architecture, demonstrate data ingestion, show both APIs working (deterministic lookup and a natural language query), and walk through the AWS services deployed in your AWS account.
+1. **Video Presentation (max 8 minutes)**: Explain your architecture, demonstrate data ingestion, show both APIs working (deterministic lookup and a natural language query), and walk through the AWS services deployed in your AWS account.
 2. **Architecture Diagram**: Clear diagram showing all components and data flow. You can use draw.io for diagraming.
 3. **Code Repository**: GitHub link with a README explaining setup and deployment. Ensure no API keys or secrets are committed.
 4. **Cost Estimation**: Estimated monthly cost using the [AWS Pricing Calculator](https://calculator.aws/), including your assumptions.
-5. **Throughput and Latency Measurements**: Average response times for both APIs, as well as average time to ingest new data. Include throughput metrics (e.g., events ingested per second, queries handled per second). Describe the methodology used to measure this.
+5. **Throughput and Latency Measurements**: Average response times for both API endpoints, as well as average time to ingest new data to raw. Include throughput metrics (e.g., events ingested per second, queries handled per second). Describe the methodology used to measure this.
 6. **Brief Write-up**: Names and student numbers, key concepts learned, and challenges encountered.
 
 You are encouraged to go deeper and explore advanced features, but the above represents the minimum requirements.
